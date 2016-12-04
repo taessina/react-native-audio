@@ -148,6 +148,9 @@ var AudioRecorder = {
   pausePlaying: function() {
     return AudioRecorderManager.pausePlaying();
   },
+  getMaxAmplitude: function() {
+    return AudioRecorderManager.getMaxAmplitude();
+  },
   checkAuthorizationStatus: AudioRecorderManager.checkAuthorizationStatus,
   requestAuthorization: AudioRecorderManager.requestAuthorization,
 };

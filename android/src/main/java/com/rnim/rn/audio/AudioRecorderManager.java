@@ -206,6 +206,16 @@ class AudioRecorderManager extends ReactContextBaseJavaModule {
     audioPlayerManager.play(currentOutputFile, null, promise);
   }
 
+  @ReactMethod
+  public void getMaxAmplitude(Promise promise) {
+    if (recorder == null) {
+      Log.e("RECORDER_NOT_PREPARED", "Please try recording later");
+      promise.reject("RECORDER_NOT_PREPARED", "Please try recording later");
+      return;
+    }
+    promise.resolve(recorder.getMaxAmplitude());
+  }
+
 
   private void sendEvent(String eventName, Object params) {
     getReactApplicationContext()
