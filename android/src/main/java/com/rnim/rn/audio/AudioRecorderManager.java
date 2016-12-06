@@ -214,6 +214,9 @@ class AudioRecorderManager extends ReactContextBaseJavaModule {
       return;
     }
     promise.resolve(recorder.getMaxAmplitude());
+    // WritableMap params = new WritableMap();
+		// params.put("maxAmplitude", 0);
+    // sendEvent("getMaxAmplitudeFinish", params);
   }
 
 

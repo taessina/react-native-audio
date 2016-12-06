@@ -7,9 +7,11 @@ import {
   View,
   TouchableHighlight,
   Platform,
+  DeviceEventEmitter,
 } from 'react-native';
 
 import { AudioRecorder, AudioUtils } from 'react-native-audio';
+let timer;
 
 class AudioExample extends Component {
   state = {
@@ -22,6 +24,7 @@ class AudioExample extends Component {
     currentMetering: 0.0,
     maxAmplitude: 0.0,
   };
+
 
   prepareRecordingPath(audioPath){
     let audioSetting = {
@@ -57,6 +60,16 @@ class AudioExample extends Component {
       console.log(`Finished recording: ${data.finished}`);
     };
 
+    DeviceEventEmitter.addListener('recordingFinished', function(e: Event) {
+      console.log('recordingFinished')
+    });
+
+  }
+
+  componentUnmount() {
+    if (timer) {
+      this.clearTimeout(timer);
+    }
   }
 
   _renderButton(title, onPress, active) {
@@ -85,6 +98,9 @@ class AudioExample extends Component {
   _stop() {
     if (this.state.recording) {
       AudioRecorder.stopRecording();
+      if (timer) {
+        clearTimeout(timer);
+      }
       this.setState({stoppedRecording: true, recording: false});
     } else if (this.state.playing) {
       AudioRecorder.stopPlaying();
@@ -110,10 +126,23 @@ class AudioExample extends Component {
     this.setState({playing: true});
   }
 
+
+  scheduleGetMaxAmplitude() {
+    timer = setTimeout(
+      () => this._getMaxAmplitude(),
+      500
+    );
+  }
+
   _getMaxAmplitude() {
-    console.log(AudioRecorder);
     if (this.state.recording) {
-      this.setState({ maxAmplitude: AudioRecorder.getMaxAmplitude() });
+      AudioRecorder.getMaxAmplitude()
+        .then(amplitude => {
+          if (this.state.recording) {
+            this.setState({ maxAmplitude: amplitude });
+            this.scheduleGetMaxAmplitude();
+          }
+        })
     }
   }
 

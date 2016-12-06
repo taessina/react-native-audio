@@ -1966,7 +1966,7 @@ http-errors@~1.3.1:
     inherits "~2.0.1"
     statuses "1"
 
-iconv-lite@0.4.11:
+iconv-lite@0.4.11, iconv-lite@^0.4.5:
   version "0.4.11"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.11.tgz#2ecb42fd294744922209a2e7c404dac8793d8ade"
 
@@ -1974,7 +1974,7 @@ iconv-lite@0.4.13:
   version "0.4.13"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.13.tgz#1f88aba4ab0b1508e8312acc39345f36e992e2f2"
 
-iconv-lite@^0.4.5, iconv-lite@~0.4.13:
+iconv-lite@~0.4.13:
   version "0.4.15"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.15.tgz#fe265a218ac6a57cfe854927e9d04c19825eddeb"
 
@@ -2575,13 +2575,13 @@ mime-db@~1.23.0:
   version "1.23.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.23.0.tgz#a31b4070adaea27d732ea333740a64d0ec9a6659"
 
-mime-types@2.1.11:
+mime-types@2.1.11, mime-types@~2.1.9:
   version "2.1.11"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.11.tgz#c259c471bda808a85d6cd193b430a5fae4473b3c"
   dependencies:
     mime-db "~1.23.0"
 
-mime-types@~2.1.11, mime-types@~2.1.13, mime-types@~2.1.6, mime-types@~2.1.9:
+mime-types@~2.1.11, mime-types@~2.1.13, mime-types@~2.1.6:
   version "2.1.13"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.13.tgz#e07aaa9c6c6b9a7ca3012c69003ad25a39e92a88"
   dependencies:
@@ -3032,7 +3032,7 @@ react-deep-force-update@^1.0.0:
 
 "react-native-audio@https://github.com/taessina/react-native-audio":
   version "2.2.0"
-  resolved "https://github.com/taessina/react-native-audio#daf040e917674057063c552bb738c4645c06c546"
+  resolved "https://github.com/taessina/react-native-audio#02161ef69ee697f4bbfbed94c22d235b231a8527"
 
 react-native@0.33.0:
   version "0.33.0"
@@ -3935,11 +3935,7 @@ watch@~0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/watch/-/watch-0.10.0.tgz#77798b2da0f9910d595f1ace5b0c2258521f21dc"
 
-whatwg-fetch@>=0.10.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.1.tgz#078b9461bbe91cea73cbce8bb122a05f9e92b772"
-
-whatwg-fetch@^1.0.0:
+whatwg-fetch@>=0.10.0, whatwg-fetch@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-1.1.1.tgz#ac3c9d39f320c6dce5339969d054ef43dd333319"
 
